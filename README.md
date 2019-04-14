@@ -1,2 +1,2 @@
 # SoftwareEngineering
-Software Engineering project Demir Gazetic (demirgazetic) and Vedad Njuhovic (Software Engineering)
+Software Engineering project from Demir Gazetic (demirgazetic) and Vedad Njuhovic (Software Engineering)
