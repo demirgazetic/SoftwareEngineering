@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.7.4-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    <link rel="stylesheet" href="offers.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="container">
+            <div class="logo is-left">
+                <!-- navbar start da bude logo na lijevoj strani -->
+                <a class="navbar-item navbar-end is.left" href="index.html">
+                    <img src="./slike/apartment-03.png" alt="">
+                </a>
+            </div>
+
+            <a href="home.html" class="navbar-item" onclick="myFunction()"> Izaberi Lokaciju
+            </a>
+            <div id="div">
+                <div class="flex-container">
+                    <ul class="title-in-box box-left"> Izaberi Lokaciju:
+                        <li class="subtitle-in-box"> <a href="">Sarajevo </a></li>
+                        <li class="subtitle-in-box"> <a href="">Zenica </a></li>
+                        <li class="subtitle-in-box"> <a href="">Bihac </a></li>
+                    </ul>
+
+                    <ul class="title-in-box box-right">
+                        Uskoro nas mozete pronaci i u
+                        <li class="subtitle-in-box"> <a href="">Tuzla</a></li>
+                        <li class="subtitle-in-box"> <a href="">Mostar</a></li>
+                        <li class="subtitle-in-box"> <a href="">Banja Luka</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="" class="navbar-item"> Offers
+            </a>
+            <a href="" class="navbar-item"> Contact Us
+            </a>
+            <div class="is-right">
+                <a href="login.html" class="navbar-item">LOG IN</a>
+                <a href="" class="navbar-item">Register</a>
+            </div>
+        </div>
+    </div>
+    <!-- NAVBAR END -->
+<!-- https://bulma.io/documentation/elements/image/ -->
+    <section class="container">
+        <div class="columns features">
+            <div class="column is-4 modal-button" data-target="modal-card">
+                <div class="card is-shady">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="slike/offersSlika1.jpg" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <h4>Modal <br>card</h4>
+                            <p>Aparment ima 120m2 nalazi se na 12 spratu, ulica Vedada Njuhovica 12</p>
+                            <span class="button is-link modal-button">Modal card</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!--  
+ MODALS -->
+    <!-- card tiny -->
+    <div id="modal-card" class="modal modal-fx-3dSlit">
+        <div class="modal-background"></div>
+        <div class="modal-content is-tiny">
+            <!-- content -->
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="slike/offersSlika1.jpg" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="slike/faceImage1.jpeg"
+                                    alt="">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">Vedad Njuhovic</p>
+                            <p class="subtitle is-6">@vedadnjuhovic</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                            Aparment ima 120m2 nalazi se na 12 spratu, ulica Vedada Njuhovica 12
+                            Aparment ima 120m2 nalazi se na 12 spratu, ulica Vedada Njuhovica 12
+                            Aparment ima 120m2 nalazi se na 12 spratu, ulica Vedada Njuhovica 12
+                            Aparment ima 120m2 nalazi se na 12 spratu, ulica Vedada Njuhovica 12
+                            <a>@vedadnjuhovic</a>.
+                        <a href="#">#novo</a>
+                        <a href="#">#novogradnja</a>
+                        <br>
+                        <time datetime="2019-02-02">12:45 AM - 20 June 2019</time>
+                    </div>
+                    <button class="button" href="">Take me to Aparment</button>
+                </div>
+            </div>
+            <!-- end content -->
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!-- end tiny modal card -->
+
+    <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+</body>
+
+</html>
