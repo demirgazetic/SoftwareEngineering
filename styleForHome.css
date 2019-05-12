@@ -114,8 +114,11 @@ li.subtitle-in-box {
 /* MAIN SECTION BEGINING */
 .title {
     width: 100%;
+   
 
 }
+
+
 
 .myButton {
     background-color: transparent;
@@ -243,28 +246,57 @@ background-color: #184c8f;
 /* footer end*/
 
 
-
-
-
-
-
-
 /* MEDIA MOBILE-DESKTOP-ETC */
-@media screen and (max-width: 1087px){
+@media screen and (max-width: 1087px) {
     .navbar>.container {
-        display: flex; 
+        display: flex;
     }
+
     section.hero.main-image {
         height: 150vh;
     }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar>.container {
+        display: flex;
     }
-    @media screen and (max-width: 768px){
-        .navbar>.container {
-            display: flex; 
-        }
-        section.hero.main-image {
-            height: 150vh;
-        }
-        }
-    
-    /*MEDIA MOBILE-DESKTOP-ETC END  */
+
+    section.hero.main-image {
+        height: 100vh;
+    }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    section.hero.main-image {
+        height: 100vh;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    section.hero.main-image {
+        height: 100vh;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+    section.hero.main-image {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 319px) {
+    section.hero.main-image {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 768px) {}
+
+/*MEDIA MOBILE-DESKTOP-ETC END  */
+
+
+h1.title{
+    padding-top: 6%;
+}

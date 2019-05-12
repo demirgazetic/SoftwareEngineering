@@ -100,8 +100,22 @@ li.subtitle-in-box {
     padding-top: 7rem;
 }
 
+/* MEDIA MOBILE-DESKTOP-ETC */
 @media screen and (max-width: 1087px){
-.navbar>.container {
-    display: flex;
-}
-}
+    .navbar>.container {
+        display: flex; 
+    }
+    section.hero.main-image {
+        height: 150vh;
+    }
+    }
+    @media screen and (max-width: 768px){
+        .navbar>.container {
+            display: flex; 
+        }
+        section.hero.main-image {
+            height: 140vh;
+        }
+        }
+    
+    /*MEDIA MOBILE-DESKTOP-ETC END  */
