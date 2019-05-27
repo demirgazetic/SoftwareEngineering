@@ -64,7 +64,7 @@ form input:focus {
     border-radius: 0px 0px 6px 6px;
 }
 .navbar ul {
-	margin-left: 35rem;
+	margin-left: 70rem;
     list-style-type: none;
 	float: right;
 	padding-top: 8px;
@@ -297,9 +297,10 @@ form input:focus {
 }
 .post-sidebar {
 	width: 24%;
-	float: left;
+	float: right;
 	margin-left: 5px;
 	min-height: 400px;
+	margin-right: 3rem;
 }
 .content .post-comments {
 	margin-top: 25px;
@@ -365,3 +366,6 @@ form input:focus {
 
 
 
+img.post_image {
+    width: 30%;
+}

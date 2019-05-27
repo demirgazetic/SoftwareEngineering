@@ -75,8 +75,9 @@ if (isset($_GET['delete-post'])) {
 
 function createPost($request_values)
 	{
-		global $conn, $errors, $title, $featured_image, $topic_id, $body, $published;
+		global $conn, $errors, $title, $location, $featured_image, $topic_id, $body, $published;
 		$title = ($request_values['title']);
+		$location = ($request_values['location']);
 		$body = htmlentities(($request_values['body']));
 		if (isset($request_values['topic_id'])) {
 			$topic_id = ($request_values['topic_id']);
@@ -87,6 +88,7 @@ function createPost($request_values)
 	 $slug = strtolower($title);
 	 $post_slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $slug);
 		if (empty($title)) { array_push($errors, "Post title is required"); }
+		if (empty($location)) { array_push($errors, "Post location is required"); }
 		if (empty($body)) { array_push($errors, "Post body is required"); }
 		if (empty($topic_id)) { array_push($errors, "Post topic is required"); }
 	  	$featured_image = $_FILES['featured_image']['name'];
@@ -111,12 +113,13 @@ echo($id);
 		// create post if there are no errors in the form
 		if (count($errors) == 0) {
 			
-			$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at) 
-			VALUES('$id', '$title', '$post_slug', '$featured_image', '$body', $published, now(), now())";
+			$query = "INSERT INTO posts (user_id, title, location, slug, image, body, published, created_at, updated_at) 
+			VALUES('$id', '$title','$location', '$post_slug', '$featured_image', '$body', $published, now(), now())";
 			if(mysqli_query($conn, $query)){ // if post created successfully
 				$inserted_post_id = mysqli_insert_id($conn);
+				$randID = rand(1,2000);
 				// create relationship between post and topic
-				$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
+				$sql = "INSERT INTO post_topic (id,post_id, topic_id) VALUES('$randID','$inserted_post_id', '$topic_id')";
 				mysqli_query($conn, $sql);
 
 				$_SESSION['message'] = "Post created successfully";

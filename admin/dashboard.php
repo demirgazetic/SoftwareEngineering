@@ -4,6 +4,19 @@
 	<title>Admin | Dashboard</title>
 </head>
 <body>
+
+<?php 
+
+  if (!isset($_SESSION['user'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: dashboard.php");
+  }
+?>
 	<div class="header">
 		<div class="logo">
 			<a href="<?php echo BASE_URL .'admin/dashboard.php' ?>">

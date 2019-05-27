@@ -9,6 +9,12 @@
 		$posts = getPublishedPostsByTopic($topic_id);
 	}
 ?>
+<?php 
+	if (isset($_GET['post-slug'])) {
+		$post = getPost($_GET['post-slug']);
+	}
+	$topics = getAllTopics();
+?>
 
 	<title>Real Estate </title>
 </head>
@@ -37,6 +43,21 @@
 			</a>
 		</div>
 	<?php endforeach ?>
+	<div class="post-sidebar">
+			<div class="card">
+				<div class="card-header">
+					<h2>Topics</h2>
+				</div>
+				<div class="card-content">
+					<?php foreach ($topics as $topic): ?>
+						<a 
+							href="<?php echo BASE_URL . 'filtered_posts.php?topic=' . $topic['id'] ?>">
+							<?php echo $topic['name']; ?>
+						</a> 
+					<?php endforeach ?>
+				</div>
+			</div>
+		</div>
 </div>
 
 </div>

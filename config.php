@@ -8,5 +8,5 @@
 	}
     // define base url
 	define ('ROOT_PATH', realpath(dirname(__FILE__)));
-	define('BASE_URL', 'http://localhost/realEstate/');
+	define('BASE_URL', 'http://localhost/SoftwareEngineering/');
 ?>
