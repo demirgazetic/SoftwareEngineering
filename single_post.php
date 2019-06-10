@@ -69,7 +69,7 @@ $longitude = floatval($arr[1]);
 		  var longitude  = '<?php echo $longitude;?>';
 		  
 		  var location = {lat: Number(latitude), lng: Number(longitude) };
-		  console.log(location);
+	
 		  // The map, centered at Uluru
 		  var map = new google.maps.Map(
 			  document.getElementById('map'), {zoom: 17, center: location});

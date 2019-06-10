@@ -14,6 +14,10 @@
 		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
 		
 		<div class="action">
+
+		<?php if ($_SESSION['user']['role'] == "Admin" ): ?>
+								
+						
 			<h1 class="page-title">Create/Edit Admin User</h1>
 
 			<form method="post" action="<?php echo BASE_URL . 'admin/users.php'; ?>" >
@@ -83,6 +87,7 @@
 				</table>
 			<?php endif ?>
 		</div>
+		<?php endif ?>
 	</div>
 </body>
 </html>
