@@ -31,6 +31,7 @@
 
 				<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
 				<input type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
+				<input type="number" name="number" value="<?php echo $number ?>" placeholder="Phone Number">
 				<input type="password" name="password" placeholder="Password">
 				<input type="password" name="passwordConfirmation" placeholder="Password confirmation">
 				<select name="role">

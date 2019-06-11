@@ -7,11 +7,13 @@
 	if (isset($_POST['reg_user'])) {
 		$username = ($_POST['username']);
 		$email = ($_POST['email']);
+		$number = ($_POST['number']);
 		$password_1 = ($_POST['password_1']);
 		$password_2 = ($_POST['password_2']);
 
 		if (empty($username)) {  array_push($errors, "Uhmm...We gonna need your username"); }
 		if (empty($email)) { array_push($errors, "Oops.. Email is missing"); }
+		if (empty($number)) { array_push($errors, "Oops.. Phone is missing"); }
 		if (empty($password_1)) { array_push($errors, "uh-oh you forgot the password"); }
 		if ($password_1 != $password_2) { array_push($errors, "The two passwords do not match");}
 
@@ -30,12 +32,15 @@
 			if ($user['email'] === $email) {
 			  array_push($errors, "Email already exists");
 			}
+			if ($user['number'] === $number) {
+				array_push($errors, "Phone already exists");
+			  }
 		}
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 			$password = md5($password_1);//encrypt the password before saving in the database
-			$query = "INSERT INTO users (username, email, password, created_at, updated_at) 
-					  VALUES('$username', '$email', '$password', now(), now())";
+			$query = "INSERT INTO users (username, email, number, password, created_at, updated_at) 
+					  VALUES('$username', '$email', '$number','$password', now(), now())";
 			mysqli_query($conn, $query);
 
 			$reg_user_id = mysqli_insert_id($conn); 

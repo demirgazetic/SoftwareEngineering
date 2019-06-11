@@ -49,6 +49,44 @@ $longitude = floatval($arr[1]);
 			<?php endif ?>
 			</div>
 
+		<div class='dugmeinteresa'>
+
+		
+    <form method="POST">
+            <button class="btn" type="submit">Send message</button>
+      <?php
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://rest.nexmo.com/sms/json");
+		curl_setopt($ch, CURLOPT_POST, 1);
+		$from = $_SESSION['user']['number'];
+		echo($from);
+		echo($post['number']);
+        curl_setopt(
+          $ch,
+          CURLOPT_POSTFIELDS,
+		  "from=Lux Estate&text=Zainteresovani smo za oglas molim vas kontaktirajte me.$from.&to=" .$post['number']."&api_key=3ff0eee8&api_secret=JZoHjdy50SQMsWzN"
+		);
+		
+		
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $server_output = curl_exec($ch);
+        $manage = json_decode($server_output, true);
+        if ($manage['message-count'] == 1) {
+          echo "Message sent successfuly";
+        } else {
+          echo "Message sent unsuccessfuly";
+        }
+
+        curl_close($ch);
+      }
+      ?>
+    </form>
+  
+		</div>
+
 			<style>
        /* Set the size of the div element that contains the map */
       #map {

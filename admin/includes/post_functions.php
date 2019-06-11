@@ -105,7 +105,9 @@ function createPost($request_values)
 		}
 	
 $id = $_SESSION['user']['id'] ;
-echo($id);
+$number = $_SESSION['user']['number'] ;
+
+
 
 		
 
@@ -113,8 +115,8 @@ echo($id);
 		// create post if there are no errors in the form
 		if (count($errors) == 0) {
 			
-			$query = "INSERT INTO posts (user_id, title, location, slug, image, body, published, created_at, updated_at) 
-			VALUES('$id', '$title','$location', '$post_slug', '$featured_image', '$body', $published, now(), now())";
+			$query = "INSERT INTO posts (user_id,number, title, location, slug, image, body, published, created_at, updated_at) 
+			VALUES('$id', '$number' ,'$title','$location', '$post_slug', '$featured_image', '$body', $published, now(), now())";
 			if(mysqli_query($conn, $query)){ // if post created successfully
 				$inserted_post_id = mysqli_insert_id($conn);
 				$randID = rand(1,2000);

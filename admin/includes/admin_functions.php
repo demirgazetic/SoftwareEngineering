@@ -29,9 +29,10 @@ if (isset($_GET['delete-admin'])) {
 
 
 function createAdmin($request_values){
-	global $conn, $errors, $role, $username, $email;
+	global $conn, $errors, $role, $username, $email, $number;
 	$username = ($request_values['username']);
 	$email = ($request_values['email']);
+	$number =($request_values['number']);
 	$password = ($request_values['password']);
 	$passwordConfirmation = ($request_values['passwordConfirmation']);
 
@@ -40,7 +41,8 @@ function createAdmin($request_values){
 	}
 	if (empty($username)) { array_push($errors, "Uhmm...We gonna need the username"); }
 	if (empty($email)) { array_push($errors, "Oops.. Email is missing"); }
-	if (empty($role)) { array_push($errors, "Role is required for admin users");}
+	if (empty($number)) { array_push($errors, "Number is required ");}
+	if (empty($role)) { array_push($errors, "Role is required ");}
 	if (empty($password)) { array_push($errors, "uh-oh you forgot the password"); }
 	if ($password != $passwordConfirmation) { array_push($errors, "The two passwords do not match"); }
 
@@ -56,13 +58,17 @@ function createAdmin($request_values){
 		if ($user['email'] === $email) {
 		  array_push($errors, "Email already exists");
 		}
+		
+		if ($user['number'] === $number) {
+			array_push($errors, "Phone already exists");
+		  }
 	}
 	$id = rand(1,100);
 	
 	if (count($errors) == 0) {
 		$password = md5($password);//encrypt the password before saving in the database
-		$query = "INSERT INTO users (id, username, email, role, password, created_at, updated_at) 
-				  VALUES('$id','$username', '$email', '$role', '$password', now(), now())";
+		$query = "INSERT INTO users (id, username, email, number, role, password, created_at, updated_at) 
+				  VALUES('$id','$username', '$email', '$number','$role', '$password', now(), now())";
 		mysqli_query($conn, $query);
 
 		$_SESSION['message'] = "Admin user created successfully";
@@ -73,7 +79,7 @@ function createAdmin($request_values){
 
 function editAdmin($admin_id)
 {
-	global $conn, $username, $role, $isEditingUser, $admin_id, $email;
+	global $conn, $username, $number, $role, $isEditingUser, $admin_id, $email;
 
 	$sql = "SELECT * FROM users WHERE id=$admin_id LIMIT 1";
 	$result = mysqli_query($conn, $sql);
@@ -85,13 +91,14 @@ function editAdmin($admin_id)
 
 
 function updateAdmin($request_values){
-	global $conn, $errors, $role, $username, $isEditingUser, $admin_id, $email;
+	global $conn, $errors, $role, $number,$username, $isEditingUser, $admin_id, $email;
 	$admin_id = $request_values['admin_id'];
 	$isEditingUser = false;
 
 
 	$username = ($request_values['username']);
 	$email = ($request_values['email']);
+	$number = ($request_values['number']);
 	$password = ($request_values['password']);
 	$passwordConfirmation = ($request_values['passwordConfirmation']);
 	if(isset($request_values['role'])){
@@ -100,7 +107,7 @@ function updateAdmin($request_values){
 	if (count($errors) == 0) {
 		$password = md5($password);
 
-		$query = "UPDATE users SET username='$username', email='$email', role='$role', password='$password' WHERE id=$admin_id";
+		$query = "UPDATE users SET username='$username', email='$email',  number='$number',role='$role', password='$password' WHERE id=$admin_id";
 		mysqli_query($conn, $query);
 
 		$_SESSION['message'] = "Admin user updated successfully";

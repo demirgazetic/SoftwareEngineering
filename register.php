@@ -16,6 +16,7 @@
 			<?php include(ROOT_PATH . '/includes/errors.php') ?>
 			<input  type="text" name="username" value="<?php echo $username; ?>"  placeholder="Username">
 			<input type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
+			<input type="number" name="number" placeholder="Phone Number">
 			<input type="password" name="password_1" placeholder="Password">
 			<input type="password" name="password_2" placeholder="Password confirmation">
 			<button type="submit" class="btn" name="reg_user">Register</button>

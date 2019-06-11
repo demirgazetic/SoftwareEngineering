@@ -71,7 +71,7 @@
 </script>
 
 <?php
-$id = $_SESSION['user']['id'] ;
+$id = $_SESSION['user']['number'] ;
 echo($id);
 ?>
 
