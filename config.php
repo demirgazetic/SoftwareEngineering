@@ -9,5 +9,5 @@
     // define base url
     
 	define('ROOT_PATH', _DIR_);
-	define('BASE_URL', 'http://localhost:8080/');
+	define('BASE_URL', 'https://luxestate.herokuapp.com/');
 ?>
