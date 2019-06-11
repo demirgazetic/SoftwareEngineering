@@ -8,6 +8,6 @@
 	}
     // define base url
     
-	define('ROOT_PATH', _DIR_);
+	$ROOT_PATH = __DIR__;
 	define('BASE_URL', 'https://luxestate.herokuapp.com/');
 ?>

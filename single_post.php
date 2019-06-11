@@ -31,7 +31,7 @@ $longitude = floatval($arr[1]);
 </head>
 <body>
 <div class="container">
-		<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
+		<?php include( $ROOT_PATH . '/includes/navbar.php'); ?>
 	
 	<div class="content" >
 		<div class="post-wrapper">
