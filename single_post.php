@@ -51,7 +51,7 @@ $longitude = floatval($arr[1]);
         
 
 		
-			<?php if (isset($_SESSION['user']['role'])) { ?>
+			<?php if (isset($_SESSION['user']['username'])) { ?>
            <div class="mydiv">If you are interested in this real estate get in contact with owner by pressing button bellow</div>
 		   <div class='dugmeinteresa'>								
     			<form method="POST">
