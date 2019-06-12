@@ -150,4 +150,8 @@ $longitude = floatval($arr[1]);
 	</div>
 </div>
 
+<<<<<<< HEAD
 <?php include( $ROOT_PATH . '/includes/footer.php'); ?>
+=======
+<?php include( $ROOT_PATH . '/includes/footer.php'); ?>
+>>>>>>> 69eb77eb7005430398399be8a8a075ca6cd35e9a
