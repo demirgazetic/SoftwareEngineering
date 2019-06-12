@@ -1,23 +1,24 @@
 <?php  include('../config.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
+<?php  include($ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
+<?php include($ROOT_PATH . '/admin/includes/head_section.php'); ?>
 
 <?php $topics = getAllTopics();	?>
 	<title>Admin | Manage Topics</title>
 </head>
 <body>
 
-	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<?php include($ROOT_PATH . '/admin/includes/navbar.php') ?>
 
 	<div class="container content">
 
-		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
+		<?php include($ROOT_PATH . '/admin/includes/menu.php') ?>
 
 		<div class="action">
+		<?php if ($_SESSION['user']['role'] == "Admin" ): ?>
 			<h1 class="page-title">Create/Edit Topics</h1>
 			<form method="post" action="<?php echo BASE_URL . 'admin/topics.php'; ?>" >
 
-				<?php include(ROOT_PATH . '/includes/errors.php') ?>
+				<?php include($ROOT_PATH . '/includes/errors.php') ?>
 				<?php if ($isEditingTopic === true): ?>
 					<input type="hidden" name="topic_id" value="<?php echo $topic_id; ?>">
 				<?php endif ?>
@@ -33,7 +34,7 @@
 		</div>
 
 		<div class="table-div">
-			<?php include(ROOT_PATH . '/includes/messages.php') ?>
+			<?php include($ROOT_PATH . '/includes/messages.php') ?>
 			<?php if (empty($topics)): ?>
 				<h1>No topics in the database.</h1>
 			<?php else: ?>
@@ -64,6 +65,7 @@
 				</table>
 			<?php endif ?>
 		</div>
+		<?php endif ?>
 	</div>
 </body>
 </html>

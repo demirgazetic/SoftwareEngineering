@@ -1,18 +1,18 @@
 <?php require_once('config.php') ?>
-<?php require_once( ROOT_PATH . '/includes/public_functions.php') ?>
-<?php require_once( ROOT_PATH . '/includes/registration_login.php') ?>
+<?php require_once( $ROOT_PATH . '/includes/public_functions.php') ?>
+<?php require_once( $ROOT_PATH . '/includes/registration_login.php') ?>
 <?php $posts = getPublishedPosts(); ?>
 
-<?php require_once( ROOT_PATH . '/includes/head_section.php') ?>
+<?php require_once( $ROOT_PATH . '/includes/head_section.php') ?>
 	<title>LifeBlog | Home </title>
 </head>
 <body>
 
 
 	<div class="container">
-		<?php include( ROOT_PATH . '/includes/navbar.php') ?>
+		<?php include( $ROOT_PATH . '/includes/navbar.php') ?>
 
-		<?php include( ROOT_PATH . '/includes/banner.php') ?>
+		<?php include( $ROOT_PATH . '/includes/banner.php') ?>
 
 	<div class="content">
 			<h2 class="content-title">Recent Articles</h2>
@@ -46,5 +46,5 @@
 
 
 		<!-- footer -->
-		<?php include( ROOT_PATH . '/includes/footer.php') ?>
+		<?php include( $ROOT_PATH . '/includes/footer.php') ?>
 		<!-- // footer -->

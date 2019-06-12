@@ -1,25 +1,29 @@
 <?php  include('../config.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
+<?php  include($ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
 <?php 
 	// Get all admin users from DB
 	$admins = getAdminUsers();
 	$roles = ['Admin', 'Author'];				
 ?>
-<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
+<?php include($ROOT_PATH . '/admin/includes/head_section.php'); ?>
 	<title>Admin | Manage users</title>
 </head>
 <body>
-	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<?php include($ROOT_PATH . '/admin/includes/navbar.php') ?>
 	<div class="container content">
-		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
+		<?php include($ROOT_PATH . '/admin/includes/menu.php') ?>
 		
 		<div class="action">
+
+		<?php if ($_SESSION['user']['role'] == "Admin" ): ?>
+								
+						
 			<h1 class="page-title">Create/Edit Admin User</h1>
 
 			<form method="post" action="<?php echo BASE_URL . 'admin/users.php'; ?>" >
 
 				<!-- validation errors for the form -->
-				<?php include(ROOT_PATH . '/includes/errors.php') ?>
+				<?php include($ROOT_PATH . '/includes/errors.php') ?>
 
 				<?php if ($isEditingUser === true): ?>
 					<input type="hidden" name="admin_id" value="<?php echo $admin_id; ?>">
@@ -27,6 +31,7 @@
 
 				<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
 				<input type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
+				<input type="number" name="number" value="<?php echo $number ?>" placeholder="Phone Number">
 				<input type="password" name="password" placeholder="Password">
 				<input type="password" name="passwordConfirmation" placeholder="Password confirmation">
 				<select name="role">
@@ -46,7 +51,7 @@
 
 		<!-- Display records from DB-->
 		<div class="table-div">
-			<?php include(ROOT_PATH . '/includes/messages.php') ?>
+			<?php include($ROOT_PATH . '/includes/messages.php') ?>
 
 			<?php if (empty($admins)): ?>
 				<h1>No admins in the database.</h1>
@@ -83,6 +88,7 @@
 				</table>
 			<?php endif ?>
 		</div>
+		<?php endif ?>
 	</div>
 </body>
 </html>

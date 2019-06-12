@@ -1,21 +1,22 @@
 <?php  include('../config.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
-<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
+<?php  include($ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
+<?php  include($ROOT_PATH . '/admin/includes/post_functions.php'); ?>
+<?php include($ROOT_PATH . '/admin/includes/head_section.php'); ?>
 
 <?php $topics = getAllTopics();	?>
 	<title>Admin | Create Post</title>
 </head>
 <body>
-	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<?php include($ROOT_PATH . '/admin/includes/navbar.php') ?>
 
 	<div class="container content">
-		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
+		<?php include($ROOT_PATH . '/admin/includes/menu.php') ?>
 
 		<div class="action create-post-div">
+
 			<h1 class="page-title">Create/Edit Post</h1>
 			<form method="post" enctype="multipart/form-data" action="<?php echo BASE_URL . 'admin/create_post.php'; ?>" >
-				<?php include(ROOT_PATH . '/includes/errors.php') ?>
+				<?php include($ROOT_PATH . '/includes/errors.php') ?>
 
 				<?php if ($isEditingPost === true): ?>
 					<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
@@ -70,7 +71,7 @@
 </script>
 
 <?php
-$id = $_SESSION['user']['id'] ;
+$id = $_SESSION['user']['number'] ;
 echo($id);
 ?>
 

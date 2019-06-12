@@ -31,7 +31,7 @@ $longitude = floatval($arr[1]);
 </head>
 <body>
 <div class="container">
-		<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
+		<?php include( $ROOT_PATH . '/includes/navbar.php'); ?>
 	
 	<div class="content" >
 		<div class="post-wrapper">
@@ -48,8 +48,55 @@ $longitude = floatval($arr[1]);
 				</div>
 			<?php endif ?>
 			</div>
+        
 
-			<style>
+		
+			<?php if (isset($_SESSION['user']['role'])) { ?>
+           <div class="mydiv">If you are interested in this real estate get in contact with owner by pressing button bellow</div>
+		   <div class='dugmeinteresa'>								
+    			<form method="POST">
+            <button class="btn" type="submit">Send message</button>
+      <?php
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://rest.nexmo.com/sms/json");
+		curl_setopt($ch, CURLOPT_POST, 1);
+		$from = $_SESSION['user']['number'];
+		echo($from);
+		echo($post['number']);
+        curl_setopt(
+          $ch,
+          CURLOPT_POSTFIELDS,
+		  "from=Lux Estate&text=Zainteresovani smo za oglas molim vas kontaktirajte me.$from.&to=" .$post['number']."&api_key=3ff0eee8&api_secret=JZoHjdy50SQMsWzN"
+		);	
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $server_output = curl_exec($ch);
+        $manage = json_decode($server_output, true);
+        if ($manage['message-count'] == 1) {
+          echo "Message sent successfuly";
+        } else {
+          echo "Message sent unsuccessfuly";
+        }
+ 
+        curl_close($ch);
+      }
+      ?>
+    		</form>
+  		</div>
+              <?php } else { ?>
+				<div class="myotherdivs">If you are interested in this estate, to get in contact with owner you MUST BE LOGGED IN</div>
+             
+            <?php } ?>
+
+
+
+			
+		
+		
+
+
+
+	<style>
        /* Set the size of the div element that contains the map */
       #map {
         height: 400px;  /* The height is 400 pixels */
@@ -69,7 +116,7 @@ $longitude = floatval($arr[1]);
 		  var longitude  = '<?php echo $longitude;?>';
 		  
 		  var location = {lat: Number(latitude), lng: Number(longitude) };
-		  console.log(location);
+	
 		  // The map, centered at Uluru
 		  var map = new google.maps.Map(
 			  document.getElementById('map'), {zoom: 17, center: location});
@@ -103,4 +150,4 @@ $longitude = floatval($arr[1]);
 	</div>
 </div>
 
-<?php include( ROOT_PATH . '/includes/footer.php'); ?>
+<?php include( $ROOT_PATH . '/includes/footer.php'); ?>

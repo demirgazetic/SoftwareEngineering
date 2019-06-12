@@ -21,7 +21,7 @@
 <body>
 <div class="container">
 
-	<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
+	<?php include( $ROOT_PATH . '/includes/navbar.php'); ?>
 
 
 <div class="content">
@@ -64,5 +64,5 @@
 
 
 <!-- Footer -->
-	<?php include( ROOT_PATH . '/includes/footer.php'); ?>
+	<?php include( $ROOT_PATH . '/includes/footer.php'); ?>
 <!-- Footer -->

@@ -3,15 +3,6 @@
 
 
 namespace myPHPnotes;
-
-/**
- * Geocoding
- * @Author: Adnan Hussain Turki
- * @Website: www.myphpnotes.com
-=====================================
-   PROPERTY OF WWW.MYPHPNOTES.COM
- */
-
 class Geocoding
 {
     protected $api_key;

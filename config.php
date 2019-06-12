@@ -7,6 +7,8 @@
 		die("Error connecting to database: " . mysqli_connect_error());
 	}
     // define base url
-	define ('ROOT_PATH', realpath(dirname(__FILE__)));
+	$ROOT_PATH = __DIR__;
 	define('BASE_URL', 'http://localhost/SoftwareEngineering/');
 ?>
+
+

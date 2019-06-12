@@ -1,21 +1,21 @@
 <?php  include('../config.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
-<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
+<?php  include($ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
+<?php  include($ROOT_PATH . '/admin/includes/post_functions.php'); ?>
+<?php include($ROOT_PATH . '/admin/includes/head_section.php'); ?>
 
 <?php $posts = getAllPosts(); ?>
 	<title>Admin | Manage Posts</title>
 </head>
 <body>
 
-	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<?php include($ROOT_PATH . '/admin/includes/navbar.php') ?>
 
 	<div class="container content">
-		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
+		<?php include($ROOT_PATH . '/admin/includes/menu.php') ?>
 
 		<div class="table-div"  style="width: 80%;">
 
-			<?php include(ROOT_PATH . '/includes/messages.php') ?>
+			<?php include($ROOT_PATH . '/includes/messages.php') ?>
 
 			<?php if (empty($posts)): ?>
 				<h1 style="text-align: center; margin-top: 20px;">No posts in the database.</h1>
