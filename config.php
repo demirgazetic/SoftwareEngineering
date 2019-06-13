@@ -9,7 +9,7 @@
     // define base url
 
 	$ROOT_PATH = __DIR__;
-	define('BASE_URL', 'http://localhost/SoftwareEngineering/');
+	define('BASE_URL', 'https://luxestate.herokuapp.com/');
 ?>
 
 
